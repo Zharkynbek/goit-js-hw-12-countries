@@ -26,11 +26,11 @@ function oneGetCountry(data) {
 }
 
 function createCountries(e) {
-  const query = e.target.value;
+  const query = e.target.value.trim();
   refs.countriesList.innerHTML = '';
 
-  if (query.trim() !== '') {
-    getCountries(query.trim()).then(data => {
+  if (query) {
+    getCountries(query).then(data => {
       console.log(data);
       if (data.length > 1 && data.length <= 10) {
         const markup = data.map(({ name }) => `<li>${name}</li>`).join('');
